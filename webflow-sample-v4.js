@@ -1,4 +1,4 @@
-<script>
+
 window.onload = function() {
 			if(localStorage.authToken == null){
       	alert('You are not logged in. Please log in and try again');
@@ -260,7 +260,7 @@ function shipmentFormSubmit(event) {
 const shipmentForm = document.getElementById('wf-form-Contact-Modal-6-Form');
 shipmentForm.addEventListener('submit', shipmentFormSubmit, true);
 
-</script>
+
 
 
 
