@@ -30,6 +30,25 @@ function getProductList(page = 1) {
 
 }
 
+function handleNextPage() { 
+    const data = getSavedData("buy-for-me-table");
+
+    if(data.currentPage !== data.totalPage){
+     getProductList(currentPage + 1)
+    }
+}
+
+function handlePrevPage() { 
+    
+}
+
+// get references to the buttons
+const nextButton = document.getElementById('table10-buy-for-me-btn-next');
+const prevButton = document.getElementById('table10-buy-for-me-btn-prev');
+
+nextButton.addEventListener('click', (e) => handleNextPage(), true);
+prevButton.addEventListener('click', (e) => handlePrevPage(), true);
+
 
 function populateToBuyForMeTable(data) {
 
