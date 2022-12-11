@@ -78,10 +78,12 @@ function handlingNextPrevButton(currentPage,totalPage, nextBtnId, prevBtnId, fun
             nextButton.disabled = false;
         }
     }
+    
+     // attach event listeners to the buttons
+    nextButton.addEventListener('click', handlePagination());
+    prevButton.addEventListener('click', handlePagination());
 
    
 }
 
- // attach event listeners to the buttons
-nextButton.addEventListener('click', handlePagination);
-prevButton.addEventListener('click', handlePagination);
+
