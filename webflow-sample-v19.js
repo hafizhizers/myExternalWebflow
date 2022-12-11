@@ -21,7 +21,7 @@ function getProductList(page = 1) {
     fetchAPI(fullUrl, 'GET', token)
         .then(data => {
             populateToBuyForMeTable(data.items);
-            shipmentTablePaginationList(data)
+            displayPaginationList(data, 'table-buy-for-me-pagination', 'table-buy-for-me-pagination-column', getProductList) 
         })
         .catch(error => {
             // Handle any errors here
@@ -63,43 +63,6 @@ function populateToBuyForMeTable(data) {
     emptyDiv.forEach(item => {
         parentTable.appendChild(item);
     });
-}
-
-
-function shipmentTablePaginationList(data) {
-    
-  
-    displayPaginationList(data, 'table-buy-for-me-pagination', 'table-buy-for-me-pagination-column', getProductList) 
-    
-      
-    /*
-    const paginationData = getPageList(data.itemsTotal, data.itemsReceived);
-    const paginationList = document.getElementById('table-buy-for-me-pagination');
-    const paginationColumn = document.getElementById('table-buy-for-me-pagination-column')
-    const emptyDiv = [];
-
-    paginationData.forEach(number => {
-        const clonePaginationColumn = paginationColumn.cloneNode(false)
-        clonePaginationColumn.innerHTML = number + 1;
-        clonePaginationColumn.addEventListener('click', function(event) {
-            // Get the current page number from the pagination element
-            const currentPage = parseInt(event.target.textContent);
-            getProductList(currentPage)
-        });
-        //emptyDiv.appendChild(clonePaginationColumn);
-        emptyDiv.push(clonePaginationColumn)
-    });
-
-    // Remove all old child nodes 
-    while (paginationList.firstChild) {
-        paginationList.removeChild(paginationList.firstChild);
-    }
-
-    emptyDiv.forEach(item => {
-        paginationList.appendChild(item);
-    });
-    */
-  
 }
 
 function clearSession(event) {
