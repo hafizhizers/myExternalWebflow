@@ -41,13 +41,13 @@ function displayPaginationList(data, listElementId, listElementColumnId, functio
     });
 }
 
-function handlingNextPrevButton(currentPageNum, nextBtnId, prevBtnId, functionName) {
+function handlingNextPrevButton(currentPageNum,pageTotalNum, nextBtnId, prevBtnId, functionName) {
     // get references to the buttons
     var nextButton = document.getElementById(nextBtnId);
     var prevButton = document.getElementById(prevBtnId);
 
     // set the current page number
-    var currentPage = currentPageNum;
+    var currentPage = currentPage;
 
     // define the event handling function
     function handlePagination(event) {
@@ -75,7 +75,7 @@ function handlingNextPrevButton(currentPageNum, nextBtnId, prevBtnId, functionNa
         }
 
         // disable the "next" button on the last page
-        if (currentPage === totalPages) {
+        if (currentPage === pageTotalNum) {
             nextButton.disabled = true;
         } else {
             nextButton.disabled = false;
