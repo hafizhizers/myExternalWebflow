@@ -8,15 +8,6 @@ window.onload = function() {
     }
 }
 
-function pageList(totalRecords, recordsPerPage) {
-    // Calculate the total number of pages
-    const totalPages = Math.ceil(totalRecords / recordsPerPage);
-
-    // Create an array of page numbers
-    const pageNumbers = Array.from(Array(totalPages).keys());
-    return pageNumbers;
-}
-
 function getProductList(page = 1) {
 
     const url = "https://x8ki-letl-twmt.n7.xano.io/api:bQZrLIyT/order?";
