@@ -42,43 +42,12 @@ function displayPaginationList(data, listElementId, listElementColumnId, functio
 }
 
 
-// Define the event handling functions
-function handlePrevButtonClick() {
-  // Code to move to the previous page of the table goes here
-   console.log('handlePrevButtonClick')
-}
+// define the event handling function
+function handlePagination(event) {
 
-function handleNextButtonClick() {
-  // Code to move to the next page of the table goes here
-    console.log('handleNextButtonClick')
-}
-
-function handlingNextPrevButton(currentPage,totalPage, nextBtnId, prevBtnId, functionName) {
-    // Get references to the buttons
-    const nextButton = document.getElementById(nextBtnId);
-    const prevButton = document.getElementById(prevBtnId);
-    // Add event listeners to the buttons
-    prevButton.addEventListener('click', handlePrevButtonClick);
-    nextButton.addEventListener('click', handleNextButtonClick);
-    
-    const data = {
-        currentPage:currentPage,
-        totalPage:totalPage,
-        apiName:functionName
-    }   
-}
-
-/*
-function handlingNextPrevButton(currentPage,totalPage, nextBtnId, prevBtnId, functionName) {
-    // get references to the buttons
-    var nextButton = document.getElementById(nextBtnId);
-    var prevButton = document.getElementById(prevBtnId);
-
-    // set the current page number
-    var currentPage = currentPage;
-
-    // define the event handling function
-    function handlePagination(event) {
+    const data = getSavedData(key);
+    console.log('data',data)
+    /*
         // determine which button was clicked
         if (event.target === nextButton) {
             // increase the current page number
@@ -105,11 +74,28 @@ function handlingNextPrevButton(currentPage,totalPage, nextBtnId, prevBtnId, fun
         } else {
             nextButton.disabled = false;
         }
-    }
-    
-     // attach event listeners to the buttons
-    nextButton.addEventListener('click', handlePagination);
-    prevButton.addEventListener('click', handlePagination); 
+        */
 }
-*/
 
+// get references to the buttons
+var nextButton = document.getElementById('table10-buy-for-me-btn-next');
+var prevButton = document.getElementById('table10-buy-for-me-btn-prev');
+
+// attach event listeners to the buttons
+nextButton.addEventListener('click', handlePagination());
+prevButton.addEventListener('click', handlePagination());
+
+
+function savePaginationData(currentPage, totalPage, tableName, functionName) {
+
+    // Set the data to save
+    const data = {
+        tableName: tableName,
+        currentPage: currentPage,
+        totalPage: totalPage,
+        functionName: functionName
+    };
+    // Use the saveData() function to save the data
+    saveData(tableName, data);
+
+}
