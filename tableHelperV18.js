@@ -80,8 +80,8 @@ function handlingNextPrevButton(currentPage,totalPage, nextBtnId, prevBtnId, fun
     }
     
      // attach event listeners to the buttons
-    nextButton.addEventListener('click', handlePagination);
-    prevButton.addEventListener('click', handlePagination);
+    nextButton.addEventListener('click', handlePagination(event));
+    prevButton.addEventListener('click', handlePagination(event));
 
    
 }
