@@ -22,10 +22,10 @@ function displayPaginationList(data, listElementId, listElementColumnId, functio
         clonePColumn.addEventListener('click', function(event) {
             // Get the current page number from the pagination element
             const currentPage = parseInt(event.target.textContent);
-            //getProductList(currentPage)
+            getProductList(currentPage)
             // Use the variable to call the function
            
-            window[functionNameEveryOnClick](currentPage);
+            //window[functionNameEveryOnClick](currentPage);
         });
         //emptyDiv.appendChild(clonePaginationColumn);
         emptyDiv.push(clonePColumn)
