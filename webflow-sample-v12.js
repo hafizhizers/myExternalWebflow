@@ -67,6 +67,10 @@ function populateToBuyForMeTable(data) {
 }
 
 function shipmentTablePaginationList(data) {
+    
+    displayPaginationList(data, 'table-buy-for-me-pagination', 'table-buy-for-me-pagination-column', getProductList) 
+    
+    /*
     const paginationData = getPageList(data.itemsTotal, data.itemsReceived);
     const paginationList = document.getElementById('table-buy-for-me-pagination');
     const paginationColumn = document.getElementById('table-buy-for-me-pagination-column')
@@ -92,7 +96,7 @@ function shipmentTablePaginationList(data) {
     emptyDiv.forEach(item => {
         paginationList.appendChild(item);
     });
-
+    /*
 }
 
 function clearSession(event) {
