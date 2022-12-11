@@ -26,8 +26,8 @@ function getProductList(page = 1) {
     const fullUrl = url + "pagination=" + encodeURIComponent(JSON.stringify(pagination));
     const token = getSavedData("authToken");
 
-
-    fetchAPI('https://x8ki-letl-twmt.n7.xano.io/api:bQZrLIyT/order', 'GET', token)
+    
+    fetchAPI(fullUrl, 'GET', token)
         .then(data => {
             console.log('data', data);
             populateToShipmentTable(data.items);
