@@ -31,8 +31,8 @@ function getProductList(page = 1) {
 }
 
 function handleNextPage() { 
-    const data = getSavedData("buy-for-me-table");
-
+    const data = getSavedData('buy-for-me-table');
+    console.log('data',data)
     if(data.currentPage !== data.totalPage){
      getProductList(currentPage + 1)
     }
