@@ -1,10 +1,11 @@
 window.onload = function() {
-			if(localStorage.authToken == null){
+	const token = getSavedData("authToken");
+			if(token == null){
       	alert('You are not logged in. Please log in and try again');
         location.href="https://atfals-site.webflow.io"
 			}
       else {
-      	getAllShipmentList(1)
+      	getProductList(1)
       }
 }
 
@@ -17,25 +18,24 @@ function pageList(totalRecords, recordsPerPage) {
   return pageNumbers;
 }
 
-function getAllShipmentList(page = 1) { 
-	
+function getProductList(page = 1) { 
+
     const url = "https://x8ki-letl-twmt.n7.xano.io/api:bQZrLIyT/order?";
     const pagination = { "page": page };
     const fullUrl = url + "pagination=" + encodeURIComponent(JSON.stringify(pagination));
+    const token = getSavedData("authToken");
+	
 
-    fetch(fullUrl, {
-        method: 'GET',
-        headers: {
-        'Content-Type': 'application/json',
-        //'Authorization': 'Bearer ' + authWarehouse
-        }
-        })
-        .then(res => res.json())
-				.then(json => {
-        	const xanoResponse = json;
-          populateToShipmentTable(xanoResponse.items);
-          shipmentTablePaginationList(xanoResponse)
-         })          
+    fetchAPI('https://x8ki-letl-twmt.n7.xano.io/api:bQZrLIyT/order', 'GET', token)
+     .then(data => {
+      console.log('data',data);
+      populateToShipmentTable(data.items);
+      shipmentTablePaginationList(data)
+    })
+    .catch(error => {
+    // Handle any errors here
+    });
+     
 }
 
 
