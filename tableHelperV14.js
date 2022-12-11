@@ -62,10 +62,7 @@ function handlingNextPrevButton(currentPage,totalPage, nextBtnId, prevBtnId, fun
 
         // update the page content
         // updatePageContent(currentPage);
-        const pagination = {
-            "page": currentPage
-        };
-        functionName(pagination)
+        functionName(currentPage)
 
         // disable the "previous" button on the first page
         if (currentPage === 1) {
