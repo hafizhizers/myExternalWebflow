@@ -39,7 +39,7 @@ function handleNextPage() {
 
 function handlePrevPage() { 
     const data = getSavedData('buy-for-me-table');
-    if(data.currentPage > data.totalPage){
+    if(data.currentPage > 1){
      getProductList(data.currentPage - 1)
     }
 }
