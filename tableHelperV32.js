@@ -44,25 +44,28 @@ function displayPaginationList(data, listElementId, listElementColumnId, functio
 
 
 // define the event handling function
-function handlePagination(tableName, functionName,event) {
+function handlePagination(tableName, functionName, type, button) {
  
     const data = getSavedData(tableName);
     const currentPage = data.currentPage;
     const totalPage = data.totalPage;
-     console.log('currentPage',currentPage, event.target === nextButton,event.target, nextButton);
+    
+     console.log('currentPage',currentPage);
         // determine which button was clicked
-        if (event.target === nextButton) {
+        if (type === 'NEXT') {
             // increase the current page number
             currentPage += 1;
-        } else if (event.target === prevButton) {
+        } else if (type === 'PREV') {
             // decrease the current page number
             currentPage -= 1;
         }
-
+    
+      functionName(currentPage)
+/*
         // update the page content
         // updatePageContent(currentPage);
       
-        functionName(currentPage)
+      
 
         // disable the "previous" button on the first page
         if (currentPage === 1) {
@@ -77,6 +80,7 @@ function handlePagination(tableName, functionName,event) {
         } else {
             nextButton.disabled = false;
         }
+        */
         
 }
 
@@ -87,8 +91,8 @@ const prevButton = document.getElementById('table10-buy-for-me-btn-prev');
 // prevButton.addEventListener('click', function() {
 //   handlePagination('buy-for-me-table');
 // }, true);
-nextButton.addEventListener('click', (e) => handlePagination('buy-for-me-table',getProductList, e), true);
-prevButton.addEventListener('click', (e) => handlePagination('buy-for-me-table',getProductList, e), true);
+nextButton.addEventListener('click', (e) => handlePagination('buy-for-me-table',getProductList, 'NEXT',nextButton), true);
+prevButton.addEventListener('click', (e) => handlePagination('buy-for-me-table',getProductList, 'PREV',prevButton), true);
 
 
 function savePaginationData(currentPage, totalPage, tableName, functionName) {
