@@ -1,4 +1,4 @@
-function pageList(totalRecords, recordsPerPage) {
+function getPageList(totalRecords, recordsPerPage) {
     // Calculate the total number of pages
     const totalPages = Math.ceil(totalRecords / recordsPerPage);
 
