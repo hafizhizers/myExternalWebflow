@@ -45,12 +45,12 @@ function displayPaginationList(data, listElementId, listElementColumnId, functio
 // Define the event handling functions
 function handlePrevButtonClick() {
   // Code to move to the previous page of the table goes here
-   console.log('hai')
+   console.log('handlePrevButtonClick')
 }
 
 function handleNextButtonClick() {
   // Code to move to the next page of the table goes here
-    console.log('hai2')
+    console.log('handleNextButtonClick')
 }
 
 function handlingNextPrevButton(currentPage,totalPage, nextBtnId, prevBtnId, functionName) {
@@ -60,6 +60,12 @@ function handlingNextPrevButton(currentPage,totalPage, nextBtnId, prevBtnId, fun
     // Add event listeners to the buttons
     prevButton.addEventListener('click', handlePrevButtonClick);
     nextButton.addEventListener('click', handleNextButtonClick);
+    
+    const data = {
+        currentPage:currentPage,
+        totalPage:totalPage,
+        apiName:functionName
+    }   
 }
 
 /*
