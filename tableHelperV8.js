@@ -14,8 +14,7 @@ function displayPaginationList(data, listElementId, listElementColumnId, functio
     const pColumn = document.getElementById(listElementColumnId)
     const emptyDiv = [];
 
-    console.log('data',functionNameEveryOnClick)
-     console.log('data2',functionNameEveryOnClick())
+    
     pData.forEach(number => {
         const clonePColumn = pColumn.cloneNode(false)
         clonePColumn.innerHTML = number + 1;
@@ -23,9 +22,9 @@ function displayPaginationList(data, listElementId, listElementColumnId, functio
         clonePColumn.addEventListener('click', function(event) {
             // Get the current page number from the pagination element
             const currentPage = parseInt(event.target.textContent);
-            getProductList(currentPage)
+            //getProductList(currentPage)
             // Use the variable to call the function
-           
+            functionNameEveryOnClick(currentPage);
             //window[functionNameEveryOnClick](currentPage);
         });
         //emptyDiv.appendChild(clonePaginationColumn);
