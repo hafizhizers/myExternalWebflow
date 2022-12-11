@@ -14,11 +14,11 @@ function displayPaginationList(data, listElementId, listElementColumnId, functio
     const pColumn = document.getElementById(listElementColumnId)
     const emptyDiv = [];
 
-
+    console.log('data',pData,pList,pColumn,emptyDiv)
     pData.forEach(number => {
         const clonePColumn = pColumn.cloneNode(false)
         clonePColumn.innerHTML = number + 1;
-        console.log('data',data,listElementId,listElementColumnId,window[functionNameEveryOnClick](currentPage))
+      
         clonePColumn.addEventListener('click', function(event) {
             // Get the current page number from the pagination element
             const currentPage = parseInt(event.target.textContent);
