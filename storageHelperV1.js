@@ -1,13 +1,3 @@
-window.onload = function() {
-			if(localStorage.authToken == null){
-      	alert('You are not logged in. Please log in and try again');
-        location.href="https://atfals-site.webflow.io"
-			}
-      else {
-      	getAllShipmentList(1)
-      }
-}
-
 function saveData(key, data) {
   // Convert the data to JSON
   const jsonData = JSON.stringify(data);
