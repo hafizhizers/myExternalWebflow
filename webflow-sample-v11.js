@@ -30,7 +30,7 @@ function getProductList(page = 1) {
     fetchAPI(fullUrl, 'GET', token)
         .then(data => {
             console.log('data', data);
-            populateToShipmentTable(data.items);
+            populateToBuyForMeTable(data.items);
             shipmentTablePaginationList(data)
         })
         .catch(error => {
@@ -40,7 +40,7 @@ function getProductList(page = 1) {
 }
 
 
-function populateToShipmentTable(data) {
+function populateToBuyForMeTable(data) {
 
     const parentTable = document.getElementById('table-buy-for-me-list');
     const style = document.getElementById('table-buy-for-me-row')
