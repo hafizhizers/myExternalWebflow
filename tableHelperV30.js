@@ -41,9 +41,7 @@ function displayPaginationList(data, listElementId, listElementColumnId, functio
     });
 }
 
-// get references to the buttons
-const nextButton = document.getElementById('table10-buy-for-me-btn-next');
-const prevButton = document.getElementById('table10-buy-for-me-btn-prev');
+
 
 // define the event handling function
 function handlePagination(tableName, functionName,event) {
@@ -81,6 +79,10 @@ function handlePagination(tableName, functionName,event) {
         }
         
 }
+
+// get references to the buttons
+const nextButton = document.getElementById('table10-buy-for-me-btn-next');
+const prevButton = document.getElementById('table10-buy-for-me-btn-prev');
 
 // prevButton.addEventListener('click', function() {
 //   handlePagination('buy-for-me-table');
