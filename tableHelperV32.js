@@ -43,58 +43,6 @@ function displayPaginationList(data, listElementId, listElementColumnId, functio
 
 
 
-// define the event handling function
-function handlePagination(tableName, functionName, type, button) {
- 
-    const data = getSavedData(tableName);
-    const currentPage = data.currentPage;
-    const totalPage = data.totalPage;
-    
-     console.log('currentPage',currentPage);
-        // determine which button was clicked
-        if (type === 'NEXT') {
-            // increase the current page number
-            currentPage += 1;
-        } else if (type === 'PREV') {
-            // decrease the current page number
-            currentPage -= 1;
-        }
-    
-      functionName(currentPage)
-/*
-        // update the page content
-        // updatePageContent(currentPage);
-      
-      
-
-        // disable the "previous" button on the first page
-        if (currentPage === 1) {
-            prevButton.disabled = true;
-        } else {
-            prevButton.disabled = false;
-        }
-
-        // disable the "next" button on the last page
-        if (currentPage === totalPage) {
-            nextButton.disabled = true;
-        } else {
-            nextButton.disabled = false;
-        }
-        */
-        
-}
-
-// get references to the buttons
-const nextButton = document.getElementById('table10-buy-for-me-btn-next');
-const prevButton = document.getElementById('table10-buy-for-me-btn-prev');
-
-// prevButton.addEventListener('click', function() {
-//   handlePagination('buy-for-me-table');
-// }, true);
-nextButton.addEventListener('click', (e) => handlePagination('buy-for-me-table',getProductList, 'NEXT',nextButton), true);
-prevButton.addEventListener('click', (e) => handlePagination('buy-for-me-table',getProductList, 'PREV',prevButton), true);
-
-
 function savePaginationData(currentPage, totalPage, tableName, functionName) {
 
     // Set the data to save
