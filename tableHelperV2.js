@@ -14,6 +14,7 @@ function displayPaginationList(data, listElementId, listElementColumnId, functio
     const paginationColumn = document.getElementById(listElementColumnId)
     const emptyDiv = [];
 
+
     pData.forEach(number => {
         const clonePColumn = pColumn.cloneNode(false)
         clonePColumn.innerHTML = number + 1;
@@ -27,7 +28,7 @@ function displayPaginationList(data, listElementId, listElementColumnId, functio
         //emptyDiv.appendChild(clonePaginationColumn);
         emptyDiv.push(clonePColumn)
     });
-
+    console.log('data',listElementId,listElementColumnId,functionNameEveryOnClick, emptyDiv)
     // Remove all old child nodes 
     while (pList.firstChild) {
         pList.removeChild(pList.firstChild);
