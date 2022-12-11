@@ -21,7 +21,7 @@ function getProductList(page = 1) {
         .then(data => {
             populateToBuyForMeTable(data.items);
             displayPaginationList(data, 'table-buy-for-me-pagination', 'table-buy-for-me-pagination-column', getProductList)
-            savePaginationData(data.curPage,data.pageTotal,'buy-for-me-table','getProductList')
+            savePaginationData(data.curPage,data.pageTotal,'buy-for-me-table')
        
         })
         .catch(error => {
