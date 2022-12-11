@@ -82,8 +82,8 @@ var nextButton = document.getElementById('table10-buy-for-me-btn-next');
 var prevButton = document.getElementById('table10-buy-for-me-btn-prev');
 
 // attach event listeners to the buttons
-nextButton.addEventListener('click', handlePagination());
-prevButton.addEventListener('click', handlePagination());
+nextButton.addEventListener('click', handlePagination, true);
+prevButton.addEventListener('click', handlePagination, true);
 
 
 function savePaginationData(currentPage, totalPage, tableName, functionName) {
