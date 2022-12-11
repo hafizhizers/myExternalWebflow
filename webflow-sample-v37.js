@@ -32,14 +32,14 @@ function getProductList(page = 1) {
 
 function handleNextPage() { 
     const data = getSavedData('buy-for-me-table');
-    if(data.currentPage <= data.totalPage){
+    if(data.currentPage < data.totalPage){
      getProductList(data.currentPage + 1)
     }
 }
 
 function handlePrevPage() { 
     const data = getSavedData('buy-for-me-table');
-    if(data.currentPage >= data.totalPage){
+    if(data.currentPage > data.totalPage){
      getProductList(data.currentPage - 1)
     }
 }
