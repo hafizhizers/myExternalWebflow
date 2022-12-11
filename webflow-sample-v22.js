@@ -103,7 +103,6 @@ function populateToSelectExpressCompany(data) {
 }
 
 function getWarehouseList() {
-
     const url = "https://x8ki-letl-twmt.n7.xano.io/api:bQZrLIyT/warehouse";
     const token = getSavedData("authToken");
 
@@ -114,13 +113,9 @@ function getWarehouseList() {
         .catch(error => {
             // Handle any errors here
         });
-
-
-
 }
 
 function getExpressCompanyList() {
-
     const url = "https://x8ki-letl-twmt.n7.xano.io/api:bQZrLIyT/express_company";
     const token = getSavedData("authToken");
 
@@ -131,8 +126,6 @@ function getExpressCompanyList() {
         .catch(error => {
             // Handle any errors here
         });
-
-
 }
 
 function handleApiRequest() {
@@ -156,22 +149,22 @@ function postShipmentData() {
         // You can add other inputs here if you want
     };
 
-    fetch("https://x8ki-letl-twmt.n7.xano.io/api:bQZrLIyT/order", {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(xano_input),
-        })
-        // handle response
-        .then(res => res.json())
-        .then(json => {
-            const xanoResponse = json;
-            // console.log(xanoResponse);
-            if (xanoResponse.message) {
-                alert(xanoResponse.message);
+    const url = "https://x8ki-letl-twmt.n7.xano.io/api:bQZrLIyT/order";
+    const token = getSavedData("authToken");
+    const options = {
+      body: JSON.stringify(xano_input)
+    };
+    
+    fetchAPI(url, 'POST', token, options)
+        .then(data => {
+            if (data.message) {
+                alert(data.message);
             }
+        })
+        .catch(error => {
+            // Handle any errors here
         });
+
 }
 
 function shipmentFormSubmit(event) {
