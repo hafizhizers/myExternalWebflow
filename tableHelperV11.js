@@ -14,11 +14,11 @@ function displayPaginationList(data, listElementId, listElementColumnId, functio
     const pColumn = document.getElementById(listElementColumnId)
     const emptyDiv = [];
 
-    
+
     pData.forEach(number => {
         const clonePColumn = pColumn.cloneNode(false)
         clonePColumn.innerHTML = number + 1;
-      
+
         clonePColumn.addEventListener('click', function(event) {
             // Get the current page number from the pagination element
             const currentPage = parseInt(event.target.textContent);
@@ -30,7 +30,7 @@ function displayPaginationList(data, listElementId, listElementColumnId, functio
         //emptyDiv.appendChild(clonePaginationColumn);
         emptyDiv.push(clonePColumn)
     });
- 
+
     // Remove all old child nodes 
     while (pList.firstChild) {
         pList.removeChild(pList.firstChild);
@@ -41,48 +41,49 @@ function displayPaginationList(data, listElementId, listElementColumnId, functio
     });
 }
 
-function handlingNextPrevButton(currentPageNum,nextBtnId,prevBtnId,functionName){
+function handlingNextPrevButton(currentPageNum, nextBtnId, prevBtnId, functionName) {
     // get references to the buttons
-var nextButton = document.getElementById(nextBtnId);
-var prevButton = document.getElementById(prevBtnId);
+    var nextButton = document.getElementById(nextBtnId);
+    var prevButton = document.getElementById(prevBtnId);
 
-// set the current page number
-var currentPage = currentPageNum;
+    // set the current page number
+    var currentPage = currentPageNum;
 
-// define the event handling function
-function handlePagination(event) {
-  // determine which button was clicked
-  if (event.target === nextButton) {
-    // increase the current page number
-    currentPage += 1;
-  } else if (event.target === prevButton) {
-    // decrease the current page number
-    currentPage -= 1;
-  }
+    // define the event handling function
+    function handlePagination(event) {
+        // determine which button was clicked
+        if (event.target === nextButton) {
+            // increase the current page number
+            currentPage += 1;
+        } else if (event.target === prevButton) {
+            // decrease the current page number
+            currentPage -= 1;
+        }
 
-  // update the page content
-  // updatePageContent(currentPage);
-    const pagination = {
-        "page": currentPage
-    };
-    functionName(pagination)
+        // update the page content
+        // updatePageContent(currentPage);
+        const pagination = {
+            "page": currentPage
+        };
+        functionName(pagination)
 
-  // disable the "previous" button on the first page
-  if (currentPage === 1) {
-    prevButton.disabled = true;
-  } else {
-    prevButton.disabled = false;
-  }
+        // disable the "previous" button on the first page
+        if (currentPage === 1) {
+            prevButton.disabled = true;
+        } else {
+            prevButton.disabled = false;
+        }
 
-  // disable the "next" button on the last page
-  if (currentPage === totalPages) {
-    nextButton.disabled = true;
-  } else {
-    nextButton.disabled = false;
-  }
+        // disable the "next" button on the last page
+        if (currentPage === totalPages) {
+            nextButton.disabled = true;
+        } else {
+            nextButton.disabled = false;
+        }
+    }
+
+    // attach event listeners to the buttons
+    nextButton.addEventListener('click', handlePagination);
+    prevButton.addEventListener('click', handlePagination);
 }
 
-// attach event listeners to the buttons
-nextButton.addEventListener('click', handlePagination);
-prevButton.addEventListener('click', handlePagination);
-}
