@@ -43,12 +43,11 @@ function displayPaginationList(data, listElementId, listElementColumnId, functio
 
 
 // define the event handling function
-function handlePagination(tableName,event) {
+function handlePagination(tableName, functionName,event) {
 
     const data = getSavedData(tableName);
     const currentPage = data.currentPage;
     const totalPage = data.totalPage;
-    const functionName = data.functionName;
     
         // determine which button was clicked
         if (event.target === nextButton) {
@@ -86,8 +85,8 @@ const prevButton = document.getElementById('table10-buy-for-me-btn-prev');
 // prevButton.addEventListener('click', function() {
 //   handlePagination('buy-for-me-table');
 // }, true);
-nextButton.addEventListener('click', (e) => handlePagination('buy-for-me-table', e), true);
-prevButton.addEventListener('click', (e) => handlePagination('buy-for-me-table', e), true);
+nextButton.addEventListener('click', (e) => handlePagination('buy-for-me-table',getProductList, e), true);
+prevButton.addEventListener('click', (e) => handlePagination('buy-for-me-table',getProductList, e), true);
 
 
 function savePaginationData(currentPage, totalPage, tableName, functionName) {
