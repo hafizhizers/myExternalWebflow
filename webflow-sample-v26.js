@@ -16,13 +16,13 @@ function getProductList(page = 1) {
     };
     const fullUrl = url + "pagination=" + encodeURIComponent(JSON.stringify(pagination));
     const token = getSavedData("authToken");
-    console.log('asd',page);
+    console.log('pagination',pagination);
     fetchAPI(fullUrl, 'GET', token)
         .then(data => {
             populateToBuyForMeTable(data.items);
             displayPaginationList(data, 'table-buy-for-me-pagination', 'table-buy-for-me-pagination-column', getProductList)
             handlingNextPrevButton(data.curPage,data.pageTotal,'table10-btn-next','table10-btn-prev',getProductList)
-            console.log('asd2',data.curPage,data.pageTotal);
+       
         })
         .catch(error => {
             // Handle any errors here
