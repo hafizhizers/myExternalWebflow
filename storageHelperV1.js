@@ -1,3 +1,15 @@
+
+function clearSession(event) {
+    event.preventDefault();
+    window.localStorage.removeItem('authToken');
+    // window.location.reload();
+    location.href = "https://atfals-site.webflow.io";
+}
+
+const logout = document.getElementById('navlink-log-out');
+logout.addEventListener('click', clearSession);
+
+
 function saveData(key, data) {
   // Convert the data to JSON
   const jsonData = JSON.stringify(data);
