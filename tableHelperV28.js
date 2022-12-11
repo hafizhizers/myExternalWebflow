@@ -60,7 +60,7 @@ function handlePagination(tableName, functionName,event) {
 
         // update the page content
         // updatePageContent(currentPage);
-        console.log('currentPage',currentPage);
+        console.log('currentPage',currentPage, event.target);
         functionName(currentPage)
 
         // disable the "previous" button on the first page
