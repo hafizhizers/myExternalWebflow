@@ -78,8 +78,8 @@ function handlePagination(event) {
 }
 
 // get references to the buttons
-var nextButton = document.getElementById('table10-buy-for-me-btn-next');
-var prevButton = document.getElementById('table10-buy-for-me-btn-prev');
+const nextButton = document.getElementById('table10-buy-for-me-btn-next');
+const prevButton = document.getElementById('table10-buy-for-me-btn-prev');
 
 // attach event listeners to the buttons
 nextButton.addEventListener('click', handlePagination, true);
