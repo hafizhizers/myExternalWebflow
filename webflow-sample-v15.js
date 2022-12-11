@@ -20,7 +20,6 @@ function getProductList(page = 1) {
     
     fetchAPI(fullUrl, 'GET', token)
         .then(data => {
-            console.log('data', data);
             populateToBuyForMeTable(data.items);
             shipmentTablePaginationList(data)
         })
