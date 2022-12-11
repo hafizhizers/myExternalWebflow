@@ -41,7 +41,7 @@ function displayPaginationList(data, listElementId, listElementColumnId, functio
     });
 }
 
-function handlingNextPrevButton(currentPageNum,pageTotalNum, nextBtnId, prevBtnId, functionName) {
+function handlingNextPrevButton(currentPage,totalPage, nextBtnId, prevBtnId, functionName) {
     // get references to the buttons
     var nextButton = document.getElementById(nextBtnId);
     var prevButton = document.getElementById(prevBtnId);
@@ -75,7 +75,7 @@ function handlingNextPrevButton(currentPageNum,pageTotalNum, nextBtnId, prevBtnI
         }
 
         // disable the "next" button on the last page
-        if (currentPage === pageTotalNum) {
+        if (currentPage === totalPage) {
             nextButton.disabled = true;
         } else {
             nextButton.disabled = false;
