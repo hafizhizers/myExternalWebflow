@@ -105,5 +105,5 @@ function handlingNextPrevButton(currentPage,totalPage, nextBtnId, prevBtnId, fun
     nextButton.addEventListener('click', handlePagination);
     prevButton.addEventListener('click', handlePagination); 
 }
-/*
+*/
 
