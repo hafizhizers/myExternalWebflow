@@ -67,7 +67,7 @@ function populateToBuyForMeTable(data) {
 }
 
 function shipmentTablePaginationList(data) {
-    const paginationData = pageList(data.itemsTotal, data.itemsReceived);
+    const paginationData = getPageList(data.itemsTotal, data.itemsReceived);
     const paginationList = document.getElementById('table-buy-for-me-pagination');
     const paginationColumn = document.getElementById('table-buy-for-me-pagination-column')
     const emptyDiv = [];
