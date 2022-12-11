@@ -65,11 +65,11 @@ function populateToBuyForMeTable(data) {
     });
 }
 
+
 function shipmentTablePaginationList(data) {
     
-    console.log('getProductList',getProductList())
-    console.log('getProductList2',getProductList)
-    //displayPaginationList(data, 'table-buy-for-me-pagination', 'table-buy-for-me-pagination-column', getProductList) 
+  
+    displayPaginationList(data, 'table-buy-for-me-pagination', 'table-buy-for-me-pagination-column', getProductList) 
     
       
     /*
