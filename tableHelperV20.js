@@ -41,6 +41,28 @@ function displayPaginationList(data, listElementId, listElementColumnId, functio
     });
 }
 
+
+// Define the event handling functions
+function handlePrevButtonClick() {
+  // Code to move to the previous page of the table goes here
+   console.log('hai')
+}
+
+function handleNextButtonClick() {
+  // Code to move to the next page of the table goes here
+    console.log('hai2')
+}
+
+function handlingNextPrevButton(currentPage,totalPage, nextBtnId, prevBtnId, functionName) {
+    // Get references to the buttons
+    const nextButton = document.getElementById(nextBtnId);
+    const prevButton = document.getElementById(prevBtnId);
+    // Add event listeners to the buttons
+    prevButton.addEventListener('click', handlePrevButtonClick);
+    nextButton.addEventListener('click', handleNextButtonClick);
+}
+
+/*
 function handlingNextPrevButton(currentPage,totalPage, nextBtnId, prevBtnId, functionName) {
     // get references to the buttons
     var nextButton = document.getElementById(nextBtnId);
@@ -81,9 +103,7 @@ function handlingNextPrevButton(currentPage,totalPage, nextBtnId, prevBtnId, fun
     
      // attach event listeners to the buttons
     nextButton.addEventListener('click', handlePagination);
-    prevButton.addEventListener('click', handlePagination);
-
-   
+    prevButton.addEventListener('click', handlePagination); 
 }
-
+/*
 
