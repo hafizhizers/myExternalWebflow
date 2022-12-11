@@ -30,37 +30,23 @@ function getProductList(page = 1) {
 
 }
 
-
-// get references to the buttons
-const nextButton = document.getElementById('table10-buy-for-me-btn-next');
-const prevButton = document.getElementById('table10-buy-for-me-btn-prev');
-
-
 function handleNextPage() { 
     const data = getSavedData('buy-for-me-table');
     if(data.currentPage < data.totalPage){
-        // enable the button if the current page is less than the total number of pages
-        nextButton.disabled = false;
-        // get the product list for the next page
-        getProductList(data.currentPage + 1)
-    } else {
-        // disable the button if the current page is equal to the total number of pages
-        nextButton.disabled = true;
+     getProductList(data.currentPage + 1)
     }
 }
 
 function handlePrevPage() { 
     const data = getSavedData('buy-for-me-table');
     if(data.currentPage > 1){
-        // enable the button if the current page is greater than 1
-        prevButton.disabled = false;
-        // get the product list for the previous page
-        getProductList(data.currentPage - 1)
+     getProductList(data.currentPage - 1)
     }
 }
 
-// disable the button by default
-prevButton.disabled = true;
+// get references to the buttons
+const nextButton = document.getElementById('table10-buy-for-me-btn-next');
+const prevButton = document.getElementById('table10-buy-for-me-btn-prev');
 
 nextButton.addEventListener('click', (e) => handleNextPage(), true);
 prevButton.addEventListener('click', (e) => handlePrevPage(), true);
