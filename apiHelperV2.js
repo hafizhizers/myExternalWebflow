@@ -1,6 +1,6 @@
-function fetchAPI(url, method, token, headers = {
+function fetchAPI(url, method, token, options = {}, headers = {
   'Content-Type': 'application/json',
-}, options = {}) {
+}) {
   // Use the fetch() function to make a request to the API
   // Pass in the options object as the fifth argument
   return fetch(url, {
@@ -44,7 +44,7 @@ const options = {
   }),
 };
 
-fetchAPI('https://example.com/api/endpoint', 'POST', token, headers, options)
+fetchAPI('https://example.com/api/endpoint', 'POST', token, options, headers)
   .then(data => {
     // Do something with the data here
   })
