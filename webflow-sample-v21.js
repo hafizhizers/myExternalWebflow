@@ -17,11 +17,10 @@ function getProductList(page = 1) {
     const fullUrl = url + "pagination=" + encodeURIComponent(JSON.stringify(pagination));
     const token = getSavedData("authToken");
 
-    
     fetchAPI(fullUrl, 'GET', token)
         .then(data => {
             populateToBuyForMeTable(data.items);
-            displayPaginationList(data, 'table-buy-for-me-pagination', 'table-buy-for-me-pagination-column', getProductList) 
+            displayPaginationList(data, 'table-buy-for-me-pagination', 'table-buy-for-me-pagination-column', getProductList)
         })
         .catch(error => {
             // Handle any errors here
@@ -104,36 +103,36 @@ function populateToSelectExpressCompany(data) {
 }
 
 function getWarehouseList() {
-    fetch("https://x8ki-letl-twmt.n7.xano.io/api:bQZrLIyT/warehouse", {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json',
-                //'Authorization': 'Bearer ' + authWarehouse
-            }
-        })
 
-        .then(res => res.json())
-        .then(json => {
-            const xanoResponse = json;
-            populateToSelectWarehouse(xanoResponse);
+    const url = "https://x8ki-letl-twmt.n7.xano.io/api:bQZrLIyT/warehouse";
+    const token = getSavedData("authToken");
+
+    fetchAPI(url, 'GET', token)
+        .then(data => {
+            populateToSelectWarehouse(data);
         })
+        .catch(error => {
+            // Handle any errors here
+        });
+
+
+
 }
 
 function getExpressCompanyList() {
 
-    fetch("https://x8ki-letl-twmt.n7.xano.io/api:bQZrLIyT/express_company", {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json',
-                //'Authorization': 'Bearer ' + authWarehouse
-            }
-        })
+    const url = "https://x8ki-letl-twmt.n7.xano.io/api:bQZrLIyT/express_company";
+    const token = getSavedData("authToken");
 
-        .then(res => res.json())
-        .then(json => {
-            const xanoResponse = json;
-            populateToSelectExpressCompany(xanoResponse);
+    fetchAPI(url, 'GET', token)
+        .then(data => {
+            populateToSelectExpressCompany(data);
         })
+        .catch(error => {
+            // Handle any errors here
+        });
+
+
 }
 
 function handleApiRequest() {
