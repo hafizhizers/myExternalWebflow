@@ -21,7 +21,7 @@ function getProductList(page = 1) {
         .then(data => {
             populateToBuyForMeTable(data.items);
             displayPaginationList(data, 'table-buy-for-me-pagination', 'table-buy-for-me-pagination-column', getProductList)
-            handlingNextPrevButton(data.curPage,'table10-btn-next','table10-btn-prev',getProductList)
+            handlingNextPrevButton(data.curPage,data.pageTotal,'table10-btn-next','table10-btn-prev',getProductList)
         })
         .catch(error => {
             // Handle any errors here
