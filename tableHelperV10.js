@@ -40,3 +40,49 @@ function displayPaginationList(data, listElementId, listElementColumnId, functio
         pList.appendChild(item);
     });
 }
+
+function handlingNextPrevButton(currentPageNum,nextBtnId,prevBtnId,functionName){
+    // get references to the buttons
+var nextButton = document.getElementById(nextBtnId);
+var prevButton = document.getElementById(prevBtnId);
+
+// set the current page number
+var currentPage = currentPageNum;
+
+// define the event handling function
+function handlePagination(event) {
+  // determine which button was clicked
+  if (event.target === nextButton) {
+    // increase the current page number
+    currentPage += 1;
+  } else if (event.target === prevButton) {
+    // decrease the current page number
+    currentPage -= 1;
+  }
+
+  // update the page content
+  // updatePageContent(currentPage);
+    const pagination = {
+        "page": currentPage
+    };
+    functionName(pagination)
+
+  // disable the "previous" button on the first page
+  if (currentPage === 1) {
+    prevButton.disabled = true;
+  } else {
+    prevButton.disabled = false;
+  }
+
+  // disable the "next" button on the last page
+  if (currentPage === totalPages) {
+    nextButton.disabled = true;
+  } else {
+    nextButton.disabled = false;
+  }
+}
+
+// attach event listeners to the buttons
+nextButton.addEventListener('click', handlePagination);
+prevButton.addEventListener('click', handlePagination);
+}
