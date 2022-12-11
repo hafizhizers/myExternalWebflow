@@ -41,10 +41,13 @@ function displayPaginationList(data, listElementId, listElementColumnId, functio
     });
 }
 
+// get references to the buttons
+const nextButton = document.getElementById('table10-buy-for-me-btn-next');
+const prevButton = document.getElementById('table10-buy-for-me-btn-prev');
 
 // define the event handling function
 function handlePagination(tableName, functionName,event) {
-
+  console.log('currentPage',currentPage, event.target === nextButton);
     const data = getSavedData(tableName);
     const currentPage = data.currentPage;
     const totalPage = data.totalPage;
@@ -60,7 +63,7 @@ function handlePagination(tableName, functionName,event) {
 
         // update the page content
         // updatePageContent(currentPage);
-        console.log('currentPage',currentPage, event.target);
+      
         functionName(currentPage)
 
         // disable the "previous" button on the first page
@@ -78,10 +81,6 @@ function handlePagination(tableName, functionName,event) {
         }
         
 }
-
-// get references to the buttons
-const nextButton = document.getElementById('table10-buy-for-me-btn-next');
-const prevButton = document.getElementById('table10-buy-for-me-btn-prev');
 
 // prevButton.addEventListener('click', function() {
 //   handlePagination('buy-for-me-table');
