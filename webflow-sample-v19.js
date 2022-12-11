@@ -65,16 +65,6 @@ function populateToBuyForMeTable(data) {
     });
 }
 
-function clearSession(event) {
-    event.preventDefault();
-    window.localStorage.removeItem('authToken');
-    // window.location.reload();
-    location.href = "https://atfals-site.webflow.io";
-}
-
-const logout = document.getElementById('navlink-log-out');
-logout.addEventListener('click', clearSession);
-
 function populateToSelectWarehouse(data) {
     var dropdown = document.getElementById("Contact-Modal-6-Select-5-Warehouse");
     dropdown.length = 0;
