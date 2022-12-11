@@ -14,7 +14,8 @@ function displayPaginationList(data, listElementId, listElementColumnId, functio
     const pColumn = document.getElementById(listElementColumnId)
     const emptyDiv = [];
 
-    console.log('data',pData,pList,pColumn,emptyDiv)
+    console.log('data',functionNameEveryOnClick)
+     console.log('data2',functionNameEveryOnClick())
     pData.forEach(number => {
         const clonePColumn = pColumn.cloneNode(false)
         clonePColumn.innerHTML = number + 1;
