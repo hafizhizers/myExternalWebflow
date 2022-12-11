@@ -67,7 +67,9 @@ function populateToBuyForMeTable(data) {
 
 function shipmentTablePaginationList(data) {
     
-    displayPaginationList(data, 'table-buy-for-me-pagination', 'table-buy-for-me-pagination-column', getProductList) 
+    console.log('getProductList',getProductList())
+    console.log('getProductList2',getProductList)
+    //displayPaginationList(data, 'table-buy-for-me-pagination', 'table-buy-for-me-pagination-column', getProductList) 
     
       
     /*
