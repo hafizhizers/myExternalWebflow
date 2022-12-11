@@ -46,8 +46,10 @@ function displayPaginationList(data, listElementId, listElementColumnId, functio
 function handlePagination(tableName,event) {
 
     const data = getSavedData(tableName);
-    console.log('data',data)
-    /*
+    const currentPage = data.currentPage;
+    const totalPage = data.totalPage;
+    const functionName = data.functionName;
+    
         // determine which button was clicked
         if (event.target === nextButton) {
             // increase the current page number
@@ -74,7 +76,7 @@ function handlePagination(tableName,event) {
         } else {
             nextButton.disabled = false;
         }
-        */
+        
 }
 
 // get references to the buttons
