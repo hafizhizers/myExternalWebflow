@@ -11,19 +11,20 @@ function getPageList(totalRecords, recordsPerPage) {
 function displayPaginationList(data, listElementId, listElementColumnId, functionNameEveryOnClick) {
     const pData = getPageList(data.itemsTotal, data.itemsReceived);
     const pList = document.getElementById(listElementId);
-    const paginationColumn = document.getElementById(listElementColumnId)
+    const pColumn = document.getElementById(listElementColumnId)
     const emptyDiv = [];
 
 
     pData.forEach(number => {
         const clonePColumn = pColumn.cloneNode(false)
         clonePColumn.innerHTML = number + 1;
+        console.log('data',data,listElementId,listElementColumnId,window[functionNameEveryOnClick](currentPage))
         clonePColumn.addEventListener('click', function(event) {
             // Get the current page number from the pagination element
             const currentPage = parseInt(event.target.textContent);
             //getProductList(currentPage)
             // Use the variable to call the function
-            console.log('data',data,listElementId,listElementColumnId,window[functionNameEveryOnClick](currentPage))
+           
             window[functionNameEveryOnClick](currentPage);
         });
         //emptyDiv.appendChild(clonePaginationColumn);
