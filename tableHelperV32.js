@@ -43,14 +43,13 @@ function displayPaginationList(data, listElementId, listElementColumnId, functio
 
 
 
-function savePaginationData(currentPage, totalPage, tableName, functionName) {
+function savePaginationData(currentPage, totalPage, tableName) {
 
     // Set the data to save
     const data = {
         tableName: tableName,
         currentPage: currentPage,
-        totalPage: totalPage,
-        functionName: functionName
+        totalPage: totalPage
     };
     // Use the saveData() function to save the data
     saveData(tableName, data);
