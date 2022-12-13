@@ -16,7 +16,6 @@ function getProductList(page = 1) {
     };
     const fullUrl = url + "pagination=" + encodeURIComponent(JSON.stringify(pagination));
     const token = getSavedData("authToken");
-    console.log('pagination',pagination);
     fetchAPI(fullUrl, 'GET', token)
         .then(data => {
             populateToBuyForMeTable(data.items);
