@@ -31,9 +31,10 @@ function populateToWalletCardList(data) {
         const card = style.cloneNode(true)
         const divs = card.getElementsByTagName('div')
         console.log('divs',divs);
-      /*
-        const orderId = divs[1]
+     
+        const cardName = divs[0]
         orderId.textContent = data.id;
+        /*
         const destination = divs[2]
         destination.textContent = `${data.warehouse_data.short_code} - ${data.destination_data.short_code}`;
         const dateTime = divs[4]
