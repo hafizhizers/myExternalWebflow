@@ -58,3 +58,13 @@ function populateToWalletCardList(data) {
         parentTable.appendChild(item);
     });
 }
+
+function clearSession(event) {
+  	event.preventDefault();
+    window.localStorage.removeItem('authToken');
+    // window.location.reload();
+    location.href = "https://atfals-site.webflow.io";
+}
+
+const logout = document.getElementById('navlink-log-out');
+logout.addEventListener('click', clearSession);
