@@ -1,3 +1,10 @@
+function errorHandler(data){
+  if(data.message){
+    alert(data.message)
+  }
+}
+
+
 function fetchAPI(url, method, token, options = {}, headers = {
   'Content-Type': 'application/json',
 }) {
@@ -17,6 +24,7 @@ function fetchAPI(url, method, token, options = {}, headers = {
     .then(data => data)
     // If the request failed, throw an error
     .catch(error => {
+      errorHandler(error)
       throw error;
     });
 }
