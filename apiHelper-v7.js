@@ -1,5 +1,5 @@
 function errorHandler(code,message){
-    alert('Code: ' + code + ' Message: ' + message);
+    alert('Code: ' + code + '\nMessage: ' + message);
 }
 
 
