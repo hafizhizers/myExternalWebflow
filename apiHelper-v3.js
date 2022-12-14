@@ -24,6 +24,7 @@ function fetchAPI(url, method, token, options = {}, headers = {
     .then(data => data)
     // If the request failed, throw an error
     .catch(error => {
+      console.log('error',error)
       errorHandler(error)
       throw error;
     });
