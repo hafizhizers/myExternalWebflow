@@ -12,14 +12,12 @@ function getProductList(page = 1) {
     const token = getSavedData("authToken");
     fetchAPI(fullUrl, 'GET', token)
         .then(data => {
-            console.log('data',data)
             populateToBuyForMeTable(data.items);
             displayPaginationList(data, 'table-buy-for-me-pagination', 'table-buy-for-me-pagination-column', getProductList)
             savePaginationData(data.curPage,data.pageTotal,'buy-for-me-table')
        
         })
         .catch(error => {
-            console.log('data2',error)
             // Handle any errors here
         });
 
