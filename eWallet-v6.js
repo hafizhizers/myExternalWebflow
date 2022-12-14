@@ -10,6 +10,7 @@ function getWalletCardList() {
             populateToWalletCardList(data);
         })
         .catch(error => {
+        console.log('error',error)
             // Handle any errors here
         });
   
