@@ -7,12 +7,10 @@ function getWalletCardList() {
     const token = getSavedData("authToken");
     fetchAPI("https://x8ki-letl-twmt.n7.xano.io/api:bQZrLIyT/ewallet_company", 'GET', token)
         .then(data => {
-            console.log('data',data)
             populateToWalletCardList(data);
         })
         .catch(error => {
-          console.log('error',error)
-          errorHandler(error)
+          
         });
   
 }
