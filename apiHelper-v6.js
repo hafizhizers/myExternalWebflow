@@ -1,7 +1,5 @@
-function errorHandler(data){
-  if(data.message){
-    alert(data.message)
-  }
+function errorHandler(code,message){
+    alert('Code: ' + code + ' Message: ' + message);
 }
 
 
@@ -22,8 +20,11 @@ function fetchAPI(url, method, token, options = {}, headers = {
     .then(response => response.json())
     // If the request was successful, return the JSON data
     .then(data => {
-    console.log('data1',data)
-         return data
+      if(data?.code){
+        errorHandler(data.code,data.message)
+      }else {
+        return data
+      }      
     })
     // If the request failed, throw an error
     .catch(error => {
