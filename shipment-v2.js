@@ -1,11 +1,5 @@
 window.onload = function() {
-    const token = getSavedData("authToken");
-    if (token == null) {
-        alert('You are not logged in. Please log in and try again');
-        location.href = "https://atfals-site.webflow.io"
-    } else {
-        getProductList(1)
-    }
+    getProductList(1)
 }
 
 function getProductList(page = 1) {
