@@ -73,7 +73,6 @@ function postSignUp() {
 	Customer_Id: userID
       }),
     };
-	console.log('options',options); return
     const token = getSavedData("authToken");
     fetchAPI("https://x8ki-letl-twmt.n7.xano.io/api:bQZrLIyT/auth/signup", 'POST', token, options)
         .then(data => {
