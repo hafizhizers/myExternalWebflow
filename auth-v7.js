@@ -9,12 +9,16 @@ function generateUniqueID() {
   // Generate a random number between 0 and 1
   const randomNumber = Math.random();
 
-  // Convert the number to a string and return the first 7 characters
-  const randomString = randomNumber.toString().substring(0, 7);
+  // Round down the random number to the nearest integer
+  const randomInteger = Math.floor(randomNumber);
+
+  // Convert the integer to a string and return the first 7 characters
+  const randomString = randomInteger.toString().substring(0, 7);
 
   // Concatenate the timestamp string and the random string
   return timestampString + randomString;
 }
+
 
 function signUpformSubmit(event) {
   	event.preventDefault();
