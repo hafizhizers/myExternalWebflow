@@ -16,7 +16,8 @@ function getWalletCardList() {
   
 }
 
-const selectedWalletValue = null;
+const selectedeWalletCardId = document.createElement('input');
+selectedEwalletCardId.setAttribute('type', 'text');
 
 function populateToWalletCardList(data) {
   
@@ -32,7 +33,7 @@ function populateToWalletCardList(data) {
       card.addEventListener('click', function() {
         // Set the background color of the clicked card to blue
         card.style.backgroundColor = "#f7c600";
-        selectedWalletValue = data;
+        selectedEwalletCardId.value = data.id;
         const eWalletCompanyName = document.getElementById('eWallet-text-company-name');
         const eWalletFee = document.getElementById('eWallet-text-fee');
         eWalletCompanyName.textContent = data.name;
@@ -103,7 +104,7 @@ eWalletBtnPay.addEventListener('click', () => {
  function postEwalletData(){
      
      const dataToSubmit = {
-         ewallet_company_id: selectedWalletValue,
+         ewallet_company_id: selectedEwalletCardId.value,
          request_amount_to_be_credit: eWalletFormAmount.value,
          is_accept_tnc: eWalletAcceptTnc.checked
          
