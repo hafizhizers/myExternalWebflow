@@ -69,7 +69,9 @@ function getUserAccountData() {
     const token = getSavedData("authToken");
     fetchAPI("https://x8ki-letl-twmt.n7.xano.io/api:bQZrLIyT/auth/me", 'GET', token)
         .then(data => {
+            const accountId = document.getElementById('user-text-account-id');
             const eWalletAccountNumber = document.getElementById('eWallet-text-account-number');
+            accountId.textContent = data.unique_id;
             eWalletAccountNumber.textContent = data.eWallet_account_number;
         })
         .catch(error => {
