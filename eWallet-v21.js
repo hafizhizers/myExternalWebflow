@@ -16,7 +16,7 @@ function getWalletCardList() {
   
 }
 
-const selectedeWalletCardId = document.createElement('input');
+const selectedEwalletCardId = document.createElement('input');
 selectedEwalletCardId.setAttribute('type', 'text');
 
 function populateToWalletCardList(data) {
