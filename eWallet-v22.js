@@ -17,7 +17,7 @@ function getWalletCardList() {
 }
 
 const selectedEwalletCardId = document.createElement('input');
-selectedEwalletCardId.setAttribute('type', 'text');
+selectedEwalletCardId.setAttribute('type', 'number');
 
 function populateToWalletCardList(data) {
   
@@ -101,18 +101,16 @@ eWalletBtnPay.addEventListener('click', () => {
   postEwalletData()
 });
 
- function postEwalletData(){
-     
-     const dataToSubmit = {
-         ewallet_company_id: selectedEwalletCardId.value,
-         request_amount_to_be_credit: eWalletFormAmount.value,
-         is_accept_tnc: eWalletAcceptTnc.checked
-         
-     }
-     
-     if(eWalletAcceptTnc.checked){
-     console.log('dataToSubmit',dataToSubmit)
-     }
-     
- }
+function postEwalletData(){
+    
+    const dataToSubmit = {
+        ewallet_company_id: selectedEwalletCardId.value,
+        request_amount_to_be_credit: eWalletFormAmount.value,
+        is_accept_tnc: eWalletAcceptTnc.checked
+    }
+    
+    if(dataToSubmit.is_accept_tnc && dataToSubmit.ewallet_company_id && dataToSubmit.request_amount_to_be_credit > 0){
+        console.log('dataToSubmit',dataToSubmit)
+    }
+}
 
