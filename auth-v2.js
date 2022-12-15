@@ -42,11 +42,15 @@ signUpform.addEventListener('submit', signUpformSubmit, true);
 
 function postSignUp() {
   
+    // Generate a unique ID for a new user
+    const userID = generateUniqueID();
+	
     const options = {
       body: JSON.stringify({
         Customer_Name: document.getElementById('Form-9-Name-2').value,
         Customer_Email: document.getElementById('Form-9-Email-2').value,
-        Customer_Password: document.getElementById('Form-9-Password-3').value
+        Customer_Password: document.getElementById('Form-9-Password-3').value,
+	Customer_Id: userID
       }),
     };
 
