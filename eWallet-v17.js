@@ -83,7 +83,7 @@ function getUserAccountData() {
 const eWalletFormAmount = document.getElementById('eWallet-form-amount');
 const eWalletTotalAmountYuan = document.getElementById('eWallet-text-total-amount-yuan');
 const eWalletTotalAmountRM = document.getElementById('eWallet-text-total-amount-rm');
-const eWalletAcceptTnc = document.getElementById('eWallet-accept-tnc');
+const eWalletAcceptTnc = document.getElementById('eWallet-checkbox-tnc');
 
 // Add event listener to eWalletFormAmount that listens for the 'input' event
 eWalletFormAmount.addEventListener('input', () => {
