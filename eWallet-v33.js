@@ -119,6 +119,7 @@ function postEwalletData(){
         const token = getSavedData("authToken");
         fetchAPI("https://x8ki-letl-twmt.n7.xano.io/api:bQZrLIyT/top_up", 'POST', token, options)
                 .then(data => {
+                   eWalletFormAmount.value = 0;
                    alert('Submitted successfully!')
                 })
                 .catch(error => {
