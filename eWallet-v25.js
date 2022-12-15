@@ -3,7 +3,7 @@ window.onload = function() {
     retrieveUserData()
 }
 
-retrieveUserData(){
+function retrieveUserData(){
     
     const accountId = document.getElementById('user-text-account-id');
     const eWalletAccountNumber = document.getElementById('eWallet-text-account-number');
