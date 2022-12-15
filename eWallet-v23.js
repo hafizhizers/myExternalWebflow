@@ -98,6 +98,8 @@ const eWalletBtnPay = document.getElementById('eWallet-btn-pay');
 const eWalletAcceptTnc = document.getElementById('eWallet-checkbox-tnc');
 
 eWalletBtnPay.addEventListener('click', () => {
+  event.preventDefault();
+  event.stopPropagation();
   postEwalletData()
 });
 
