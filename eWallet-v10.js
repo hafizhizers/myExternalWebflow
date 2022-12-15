@@ -30,7 +30,9 @@ function populateToWalletCardList(data) {
         // Set the background color of the clicked card to blue
         card.style.backgroundColor = "#f7c600";
         const eWalletCompanyName = document.getElementById('eWallet-text-company-name');
+        const eWalletFee = document.getElementById('eWallet-text-fees');
         eWalletCompanyName.textContent = data.name;
+        eWalletFee.textContent = `${data.fee}%`;
 
         // Set the background color of all other cards to the default value
         emptyDiv.forEach(otherCard => {
