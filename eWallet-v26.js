@@ -102,7 +102,7 @@ function postEwalletData(){
     
     const userData = getSavedData("userData");
     const dataToSubmit = {
-        user_id: userData.user_id,
+        user_id: userData.id,
         ewallet_company_id: selectedEwalletCardId.value,
         request_amount_to_be_credit: eWalletFormAmount.value,
         is_accept_tnc: eWalletAcceptTnc.checked
