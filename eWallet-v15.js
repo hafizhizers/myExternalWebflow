@@ -3,11 +3,6 @@ window.onload = function() {
     getUserAccountData()
 }
 
-const eWalletFormAmount = document.getElementById('eWallet-form-amount');
-const eWalletTotalAmountRM = document.getElementById('eWallet-text-total-amount-rm');
-
-eWalletTotalAmountRM.textContent = eWalletFormAmount.value;
-
 function getWalletCardList() {
   
     const token = getSavedData("authToken");
@@ -84,3 +79,17 @@ function getUserAccountData() {
         });
   
 }
+
+const eWalletFormAmount = document.getElementById('eWallet-form-amount');
+const eWalletTotalAmountYuan = document.getElementById('eWallet-text-total-amount-yuan');
+const eWalletTotalAmountRM = document.getElementById('eWallet-text-total-amount-rm');
+
+
+// Add event listener to eWalletFormAmount that listens for the 'input' event
+eWalletFormAmount.addEventListener('input', () => {
+
+  eWalletTotalAmountYuan.textContent = eWalletFormAmount.value;
+  eWalletTotalAmountRM.textContent = eWalletFormAmount.value;
+    
+});
+
