@@ -1,5 +1,6 @@
 window.onload = function() {
     getWalletCardList(1)
+    getUserAccountData()
 }
 
 function getWalletCardList() {
@@ -63,12 +64,13 @@ function populateToWalletCardList(data) {
 }
 
 
-function getUserData() {
+function getUserAccountData() {
   
     const token = getSavedData("authToken");
-    fetchAPI("https://x8ki-letl-twmt.n7.xano.io/api:bQZrLIyT/ewallet_company", 'GET', token)
+    fetchAPI("https://x8ki-letl-twmt.n7.xano.io/api:bQZrLIyT/auth/me", 'GET', token)
         .then(data => {
-            populateToWalletCardList(data);
+            const eWalletAccountNumber = document.getElementById('eWallet-text-account-number');
+            eWalletAccountNumber.textContent = data.eWallet_account_number;
         })
         .catch(error => {
           
