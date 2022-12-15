@@ -3,6 +3,11 @@ window.onload = function() {
     getUserAccountData()
 }
 
+const eWalletFormAmount = document.getElementById('eWallet-form-amount');
+const eWalletTotalAmountRM = document.getElementById('eWallet-text-total-amount-rm');
+
+eWalletTotalAmountRM.textContent = eWalletFormAmount.value;
+
 function getWalletCardList() {
   
     const token = getSavedData("authToken");
