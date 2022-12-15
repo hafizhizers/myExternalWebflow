@@ -61,3 +61,17 @@ function populateToWalletCardList(data) {
         parentTable.appendChild(item);
     });
 }
+
+
+function getUserData() {
+  
+    const token = getSavedData("authToken");
+    fetchAPI("https://x8ki-letl-twmt.n7.xano.io/api:bQZrLIyT/ewallet_company", 'GET', token)
+        .then(data => {
+            populateToWalletCardList(data);
+        })
+        .catch(error => {
+          
+        });
+  
+}
