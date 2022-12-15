@@ -74,20 +74,18 @@ function postSignUp() {
     const token = getSavedData("authToken");
     fetchAPI("https://x8ki-letl-twmt.n7.xano.io/api:bQZrLIyT/auth/signup", 'POST', token, options)
         .then(data => {
-        	const hasKey = Object.keys(data).includes("authToken");
-          if (hasKey === false) {
-          	alert("User already exists.")}
+            const hasKey = Object.keys(data).includes("authToken");
+            if (hasKey === false) {
+              alert("User already exists.")
             else {
               alert("Your account was created successfully. Please login to access the website");
               }
-          ;}
         })
         .catch(error => {
           
         });
   
 }
-
 
 function postLogin() {
   
@@ -101,15 +99,14 @@ function postLogin() {
     const token = getSavedData("authToken");
     fetchAPI("https://x8ki-letl-twmt.n7.xano.io/api:bQZrLIyT/auth/login", 'POST', token, options)
         .then(data => {
-        	const hasKey = Object.keys(data).includes("authToken");
-          if (hasKey === false) {
-          	alert("Invalid email or password.")}
+            const hasKey = Object.keys(data).includes("authToken");
+            if (hasKey === false) {
+          	alert("Invalid email or password.")
             else {
               const authToken = data.authToken;
               saveData('authToken', authToken);
               location.href = "https://atfals-site.webflow.io/singleitem";
               }
-          ;}
         })
         .catch(error => {
           
