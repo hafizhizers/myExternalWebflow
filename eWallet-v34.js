@@ -120,6 +120,8 @@ function postEwalletData(){
         fetchAPI("https://x8ki-letl-twmt.n7.xano.io/api:bQZrLIyT/top_up", 'POST', token, options)
                 .then(data => {
                    eWalletFormAmount.value = 0;
+                   eWalletTotalAmountYuan.textContent = eWalletFormAmount.value;
+                   eWalletTotalAmountRM.textContent = eWalletFormAmount.value;
                    alert('Submitted successfully!')
                 })
                 .catch(error => {
