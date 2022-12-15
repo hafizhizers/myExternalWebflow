@@ -1,6 +1,17 @@
 window.onload = function() {
     getWalletCardList(1)
-    getUserAccountData()
+    retrieveUserData()
+}
+
+retrieveUserData(){
+    
+    const accountId = document.getElementById('user-text-account-id');
+    const eWalletAccountNumber = document.getElementById('eWallet-text-account-number');
+    
+    const userData = getSavedData("userData");
+    accountId.textContent = userData.unique_id;
+    eWalletAccountNumber.textContent = userData.eWallet_account_number;
+    
 }
 
 function getWalletCardList() {
@@ -68,22 +79,6 @@ function populateToWalletCardList(data) {
 }
 
 
-function getUserAccountData() {
-  
-    const token = getSavedData("authToken");
-    fetchAPI("https://x8ki-letl-twmt.n7.xano.io/api:bQZrLIyT/auth/me", 'GET', token)
-        .then(data => {
-            const accountId = document.getElementById('user-text-account-id');
-            const eWalletAccountNumber = document.getElementById('eWallet-text-account-number');
-            accountId.textContent = data.unique_id;
-            eWalletAccountNumber.textContent = data.eWallet_account_number;
-        })
-        .catch(error => {
-          
-        });
-  
-}
-
 const eWalletFormAmount = document.getElementById('eWallet-form-amount');
 const eWalletTotalAmountYuan = document.getElementById('eWallet-text-total-amount-yuan');
 const eWalletTotalAmountRM = document.getElementById('eWallet-text-total-amount-rm');
@@ -105,7 +100,9 @@ eWalletBtnPay.addEventListener('click', () => {
 
 function postEwalletData(){
     
+    const userData = getSavedData("userData");
     const dataToSubmit = {
+        user_id: userData.user_id,
         ewallet_company_id: selectedEwalletCardId.value,
         request_amount_to_be_credit: eWalletFormAmount.value,
         is_accept_tnc: eWalletAcceptTnc.checked
