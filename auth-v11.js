@@ -23,7 +23,7 @@ function generateUniqueID() {
 function signUpformSubmit(event) {
   	event.preventDefault();
   	event.stopPropagation();
-		postSignUp()
+	postSignUp()
 }
 
 const signUpform = document.getElementById('wf-form-Sign-up-Form-9');
@@ -90,7 +90,7 @@ function postLogin() {
 function loginformSubmit(event) {
   	event.preventDefault();
   	event.stopPropagation();
-		postLogin()
+	postLogin()
 }
 
 const loginForm = document.getElementById('wf-form-Log-in-Form-9');
