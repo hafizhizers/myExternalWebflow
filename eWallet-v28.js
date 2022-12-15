@@ -100,30 +100,29 @@ eWalletBtnPay.addEventListener('click', () => {
 
 function postEwalletData(){
     
-    const userData = getSavedData("userData");
-    const dataToSubmit = {
-        user_id: userData.id,
-        ewallet_company_id: selectedEwalletCardId.value,
-        request_amount_to_be_credit: eWalletFormAmount.value,
-        is_accept_tnc: eWalletAcceptTnc.checked
-    }
-    
-    const options = {
-      body: JSON.stringify({
-        ...dataToSubmit
-      }),
-    };
+    if(eWalletAcceptTnc.checked && selectedEwalletCardId.value && eWalletFormAmount.value > 0){
+        
+        const userData = getSavedData("userData");
+        
+        const options = {
+          body: JSON.stringify({
+            user_id: userData.id,
+            ewallet_company_id: selectedEwalletCardId.value,
+            request_amount_to_be_credit: eWalletFormAmount.value,
+            is_accept_tnc: eWalletAcceptTnc.checked
+          }),
+        };
 
-    
-    if(dataToSubmit.is_accept_tnc && dataToSubmit.ewallet_company_id && dataToSubmit.request_amount_to_be_credit > 0){
-          const token = getSavedData("authToken");
-            fetchAPI("https://x8ki-letl-twmt.n7.xano.io/api:bQZrLIyT/top_up", 'POST', options)
+        console.log('options',options);
+        
+        const token = getSavedData("authToken");
+        fetchAPI("https://x8ki-letl-twmt.n7.xano.io/api:bQZrLIyT/top_up", 'POST', options)
                 .then(data => {
                    alert('Submitted successfully!')
                 })
                 .catch(error => {
 
-                });
+         });
     }
 }
 
