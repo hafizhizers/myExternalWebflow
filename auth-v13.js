@@ -58,6 +58,19 @@ function postSignUp() {
   
 }
 
+function storeUserAccountData(token) {
+  
+    fetchAPI("https://x8ki-letl-twmt.n7.xano.io/api:bQZrLIyT/auth/me", 'GET', token)
+        .then(data => {
+            saveData('userData', data);
+	    location.href = "https://atfals-site.webflow.io/singleitem";
+        })
+        .catch(error => {
+          
+        });
+  
+}
+
 function postLogin() {
   
     const options = {
@@ -77,7 +90,7 @@ function postLogin() {
             else {
               const authToken = data.authToken;
               saveData('authToken', authToken);
-              location.href = "https://atfals-site.webflow.io/singleitem";
+	      storeUserAccountData(authToken);
             }
         })
         .catch(error => {
