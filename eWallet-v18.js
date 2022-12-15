@@ -100,5 +100,22 @@ eWalletAcceptTnc.addEventListener('click', () => {
   }
 });
 
+const eWalletBtnPay = document.getElementById('eWallet-btn-pay');
 
+eWalletBtnPay.addEventListener('click', () => {
+  postEwalletData()
+});
+
+ function postEwalletData(){
+     
+     const dataToSubmit = {
+         ewallet_company_id: 1,
+         request_amount_to_be_credit: eWalletFormAmount.value,
+         is_accept_tnc: eWalletAcceptTnc.checked
+         
+     }
+     
+     console.log('dataToSubmit',dataToSubmit)
+     
+ }
 
