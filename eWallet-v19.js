@@ -16,6 +16,8 @@ function getWalletCardList() {
   
 }
 
+const selectedWalletValue = null;
+
 function populateToWalletCardList(data) {
   
     const parentTable = document.getElementById('wallet-card-list-parent');
@@ -30,6 +32,7 @@ function populateToWalletCardList(data) {
       card.addEventListener('click', function() {
         // Set the background color of the clicked card to blue
         card.style.backgroundColor = "#f7c600";
+        selectedWalletValue = data;
         const eWalletCompanyName = document.getElementById('eWallet-text-company-name');
         const eWalletFee = document.getElementById('eWallet-text-fee');
         eWalletCompanyName.textContent = data.name;
@@ -83,7 +86,6 @@ function getUserAccountData() {
 const eWalletFormAmount = document.getElementById('eWallet-form-amount');
 const eWalletTotalAmountYuan = document.getElementById('eWallet-text-total-amount-yuan');
 const eWalletTotalAmountRM = document.getElementById('eWallet-text-total-amount-rm');
-const eWalletAcceptTnc = document.getElementById('eWallet-checkbox-tnc');
 
 // Add event listener to eWalletFormAmount that listens for the 'input' event
 eWalletFormAmount.addEventListener('input', () => {
@@ -91,16 +93,8 @@ eWalletFormAmount.addEventListener('input', () => {
   eWalletTotalAmountRM.textContent = eWalletFormAmount.value;
 });
 
-
-eWalletAcceptTnc.addEventListener('click', () => {
-  if (eWalletAcceptTnc.checked) {
-      console.log('true')
-  } else {
-      console.log('false')
-  }
-});
-
 const eWalletBtnPay = document.getElementById('eWallet-btn-pay');
+const eWalletAcceptTnc = document.getElementById('eWallet-checkbox-tnc');
 
 eWalletBtnPay.addEventListener('click', () => {
   postEwalletData()
@@ -109,13 +103,15 @@ eWalletBtnPay.addEventListener('click', () => {
  function postEwalletData(){
      
      const dataToSubmit = {
-         ewallet_company_id: 1,
+         ewallet_company_id: selectedWalletValue,
          request_amount_to_be_credit: eWalletFormAmount.value,
          is_accept_tnc: eWalletAcceptTnc.checked
          
      }
      
+     if(eWalletAcceptTnc.checked){
      console.log('dataToSubmit',dataToSubmit)
+     }
      
  }
 
