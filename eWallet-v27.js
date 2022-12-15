@@ -108,8 +108,24 @@ function postEwalletData(){
         is_accept_tnc: eWalletAcceptTnc.checked
     }
     
+    const options = {
+      body: JSON.stringify({
+        ...dataToSubmit
+      }),
+    };
+
+    
     if(dataToSubmit.is_accept_tnc && dataToSubmit.ewallet_company_id && dataToSubmit.request_amount_to_be_credit > 0){
-        console.log('dataToSubmit',dataToSubmit)
+          const token = getSavedData("authToken");
+            fetchAPI("https://x8ki-letl-twmt.n7.xano.io/api:bQZrLIyT/top_up", 'POST', options)
+                .then(data => {
+                   alert('Submitted successfully!')
+                })
+                .catch(error => {
+
+                });
     }
 }
+
+
 
