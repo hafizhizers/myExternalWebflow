@@ -77,9 +77,10 @@ function postSignUp() {
             const hasKey = Object.keys(data).includes("authToken");
             if (hasKey === false) {
               alert("User already exists.")
+	    }
             else {
               alert("Your account was created successfully. Please login to access the website");
-              }
+            }
         })
         .catch(error => {
           
@@ -102,11 +103,12 @@ function postLogin() {
             const hasKey = Object.keys(data).includes("authToken");
             if (hasKey === false) {
           	alert("Invalid email or password.")
+	    }
             else {
               const authToken = data.authToken;
               saveData('authToken', authToken);
               location.href = "https://atfals-site.webflow.io/singleitem";
-              }
+            }
         })
         .catch(error => {
           
