@@ -65,8 +65,6 @@ function postSignUp() {
   
     // Generate a unique ID for a new user
     const userID = generateUniqueID();
-    console.log('userID',userID)
-	return
     const options = {
       body: JSON.stringify({
         Customer_Name: document.getElementById('Form-9-Name-2').value,
