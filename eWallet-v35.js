@@ -1,6 +1,7 @@
 window.onload = function() {
     getWalletCardList(1)
     retrieveUserData()
+    getTransactionData()
 }
 
 function retrieveUserData(){
