@@ -111,7 +111,8 @@ function postEwalletData(){
             ewallet_company_id: selectedEwalletCardId.value,
             request_amount_to_be_credit: eWalletFormAmount.value,
             is_accept_tnc: eWalletAcceptTnc.checked,
-            request_status: 0
+            request_status: 0,
+            status_id: 1, // on way
           }),
         };
 
