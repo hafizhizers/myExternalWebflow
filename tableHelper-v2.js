@@ -9,7 +9,14 @@ function getPageList(totalRecords, recordsPerPage) {
 
 
 function displayPaginationList(data, listElementId, listElementColumnId, functionNameEveryOnClick) {
-    const pData = getPageList(data.itemsTotal, data.itemsReceived);
+    
+    const total = data.pageTotal;
+    const pData = [];
+    for (let i = 0; i < total; i++) {
+      array.push(i + 1);
+    }
+
+    // const pData = getPageList(data.itemsTotal, data.itemsReceived);
     const pList = document.getElementById(listElementId);
     const pColumn = document.getElementById(listElementColumnId)
     const emptyDiv = [];
@@ -17,7 +24,7 @@ function displayPaginationList(data, listElementId, listElementColumnId, functio
 
     pData.forEach(number => {
         const clonePColumn = pColumn.cloneNode(false)
-        clonePColumn.innerHTML = number + 1;
+        clonePColumn.innerHTML = number;
 
         clonePColumn.addEventListener('click', function(event) {
             // Get the current page number from the pagination element
