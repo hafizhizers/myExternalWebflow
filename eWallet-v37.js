@@ -112,7 +112,7 @@ function postEwalletData(){
             request_amount_to_be_credit: eWalletFormAmount.value,
             is_accept_tnc: eWalletAcceptTnc.checked,
             request_status: 0,
-            status_id: 1, // on way
+            status_id: 1 // on way
           }),
         };
 
