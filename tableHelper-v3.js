@@ -13,7 +13,7 @@ function displayPaginationList(data, listElementId, listElementColumnId, functio
     const total = data.pageTotal;
     const pData = [];
     for (let i = 0; i < total; i++) {
-      array.push(i + 1);
+      pData.push(i + 1);
     }
 
     // const pData = getPageList(data.itemsTotal, data.itemsReceived);
