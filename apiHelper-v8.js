@@ -1,5 +1,11 @@
 function errorHandler(code,message){
-    alert('Code: ' + code + '\nMessage: ' + message);
+   
+    if(code === 'ERROR_CODE_UNAUTHORIZED'){
+       alert('Your session has expired. Please log in again to continue.');
+       window.location.replace('/login');
+    }else{
+       alert('Code: ' + code + '\nMessage: ' + message);
+    }
 }
 
 
