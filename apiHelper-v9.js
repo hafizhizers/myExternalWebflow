@@ -1,11 +1,12 @@
-function errorHandler(code,message){
-   
-    if(code === 'ERROR_CODE_UNAUTHORIZED'){
-       alert('Your session has expired. Please log in again to continue.');
-       window.location.replace('/login');
-    }else{
-       alert('Code: ' + code + '\nMessage: ' + message);
-    }
+function errorHandler(code, message) {
+  if (code === 'ERROR_CODE_UNAUTHORIZED') {
+    alert('Your session has expired. Please log in again to continue.');
+    localStorage.clear();
+    sessionStorage.clear();
+    history.pushState({}, document.title, '/signup');
+  } else {
+    alert('Code: ' + code + '\nMessage: ' + message);
+  }
 }
 
 
