@@ -3,11 +3,12 @@ function errorHandler(code, message) {
     alert('Your session has expired. Please log in again to continue.');
     localStorage.clear();
     sessionStorage.clear();
-    history.pushState({}, document.title, '/signup');
+    window.location.replace('/signup');
   } else {
     alert('Code: ' + code + '\nMessage: ' + message);
   }
 }
+
 
 
 function fetchAPI(url, method, token, options = {}, headers = {
